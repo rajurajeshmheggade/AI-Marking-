@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base System - Complete Documentation</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2.5cm 2cm;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #2c3e50; background: #ffffff; padding: 40px; max-width: 210mm; margin: 0 auto; }
+        .cover-page { text-align: center; padding: 100px 0; page-break-after: always; border-bottom: 4px solid #2c5f8d; }
+        .cover-page h1 { font-size: 42px; color: #1c67a8; margin-bottom: 20px; font-weight: 700; }
+        .cover-page .subtitle { font-size: 24px; color: #5a6c7d; margin-bottom: 60px; font-weight: 400; }
+        .cover-page .version { font-size: 18px; color: #7f8c8d; margin-top: 80px; }
+        .toc { page-break-after: always; padding: 40px 0; }
+        .toc h2 { font-size: 32px; color: #2c5f8d; margin-bottom: 30px; padding-bottom: 10px; border-bottom: 3px solid #2c5f8d; }
+        .toc ul { list-style: none; padding-left: 0; }
+        .toc li { padding: 12px 0; font-size: 16px; border-bottom: 1px solid #e0e0e0; }
+        .toc li a { color: #2c3e50; text-decoration: none; display: flex; justify-content: space-between; }
+        .toc li a:hover { color: #2c5f8d; }
+        h1 { font-size: 36px; color: #2c5f8d; margin: 60px 0 30px 0; padding-bottom: 15px; border-bottom: 4px solid #2c5f8d; page-break-before: always; font-weight: 700; }
+        h2 { font-size: 28px; color: #34495e; margin: 40px 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid #3498db; font-weight: 600; }
+        h3 { font-size: 22px; color: #16a085; margin: 30px 0 15px 0; font-weight: 600; }
+        h4 { font-size: 18px; color: #e67e22; margin: 25px 0 12px 0; font-weight: 600; }
+        p { margin-bottom: 15px; text-align: justify; font-size: 14px; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; font-size: 14px; }
+        .info-box { background: #f8f9fa; border-left: 4px solid #2c5f8d; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .warning-box { background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .success-box { background: #d4edda; border-left: 4px solid #28a745; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .error-box { background: #f8d7da; border-left: 4px solid #dc3545; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+        th { background: #2c5f8d; color: white; padding: 12px; text-align: left; font-weight: 600; }
+        td { padding: 12px; border: 1px solid #ddd; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; color: #c7254e; font-size: 13px; }
+        .code-block { background: #2c3e50; color: #ecf0f1; padding: 20px; border-radius: 5px; margin: 20px 0; font-family: 'Courier New', monospace; font-size: 13px; overflow-x: auto; }
+        .example { background: #e8f4f8; border: 1px solid #3498db; padding: 15px; margin: 15px 0; border-radius: 4px; }
+        .example-title { font-weight: 600; color: #2c5f8d; margin-bottom: 10px; }
+        strong { color: #2c3e50; font-weight: 600; }
+        .footer { text-align: center; margin-top: 60px; padding-top: 20px; border-top: 2px solid #e0e0e0; color: #7f8c8d; font-size: 12px; }
+        @media print { body { padding: 0; } .no-print { display: none; } }
+        .btn-back { position: fixed; top: 20px; right: 20px; padding: 12px 24px; background: #cda132; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1000; }
+        .btn-back:hover { background: #1e4d73; }
+        .btn-download { position: fixed; bottom: 20px; right: 20px; padding: 12px 24px; background: #cda132; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2); z-index: 1000; }
+        .btn-download:hover { background: #1e4d73; }
+    </style>
+</head>
+<body>
+<!-- <button class="btn-back no-print"  onclick="window.location='/knowledge-base'">Back </button> -->
+    <button class="btn-download no-print" onclick="window.print()">Download PDF</button>
+    
+    <div class="cover-page">
+        <h1>Knowledge Base System</h1>
+        <div class="subtitle">Complete Documentation</div>
+        <div class="version">Version 1.0</div>
+        <div class="version">2025</div>
+    </div>
+    
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#section1"><span>1. System Overview</span><span>1</span></a></li>
+            <li><a href="#section2"><span>2. Customer Selection</span><span>2</span></a></li>
+            <li><a href="#section3"><span>3. Knowledge Base Creation</span><span>3</span></a></li>
+            <li><a href="#section4"><span>4. Document Management</span><span>5</span></a></li>
+            <li><a href="#section5"><span>5. Processing Settings</span><span>6</span></a></li>
+            <li><a href="#section6"><span>6. Query Processing Pipeline</span><span>15</span></a></li>
+            <li><a href="#section7"><span>7. Response Generation</span><span>17</span></a></li>
+            <li><a href="#section8"><span>8. Best Practices</span><span>20</span></a></li>
+            <li><a href="#section9"><span>9. Troubleshooting</span><span>22</span></a></li>
+        </ul>
+    </div>
+    
+    <h1 id="section1">1. System Overview</h1>
+    
+    <p>The Knowledge Base System is an advanced document management and retrieval platform that leverages artificial intelligence to provide accurate, contextual answers from your document repositories. This system combines state-of-the-art natural language processing techniques with vector embeddings to create an intelligent question-answering solution.</p>
+    
+    <h2>Key Features</h2>
+    
+    <ul>
+        <li><strong>Intelligent Document Processing:</strong> Automatically processes and indexes documents from multiple formats</li>
+        <li><strong>Vector Embeddings:</strong> Converts text into high-dimensional vectors for semantic search</li>
+        <li><strong>Advanced Retrieval:</strong> Uses similarity search and MMR algorithms for optimal information retrieval</li>
+        <li><strong>Query Enhancement:</strong> Automatically rewrites queries for improved search coverage</li>
+        <li><strong>Multi-Model Support:</strong> Compatible with various large language models for answer generation</li>
+        <li><strong>Customizable Settings:</strong> Fine-tune system parameters to match your specific requirements</li>
+    </ul>
+    
+    <h2>System Architecture</h2>
+    
+    <p>The system operates through a multi-stage pipeline designed to maximize accuracy and relevance:</p>
+    
+    <ol>
+        <li><strong>Document Ingestion:</strong> Upload and validate documents in supported formats</li>
+        <li><strong>Preprocessing:</strong> Clean and structure document content</li>
+        <li><strong>Chunking:</strong> Split documents into optimally-sized segments</li>
+        <li><strong>Embedding Generation:</strong> Convert text chunks into vector representations</li>
+        <li><strong>Vector Storage:</strong> Store embeddings in high-performance databases</li>
+        <li><strong>Query Processing:</strong> Enhance and execute user queries</li>
+        <li><strong>Response Generation:</strong> Generate accurate answers using retrieved context</li>
+    </ol>
+    
+    <h1 id="section2">2. Customer Selection</h1>
+    
+    <h2>Purpose</h2>
+    
+    <p>The customer selection feature enables organizational hierarchy within the knowledge base system. This functionality allows users to segregate and manage knowledge bases according to different customers, projects, or business units, ensuring proper data isolation and access control.</p>
+    
+    <h2>How It Works</h2>
+    
+    <ol>
+        <li>Navigate to the customer selection dropdown menu located at the top of the interface</li>
+        <li>Click on the dropdown to reveal the list of available customers</li>
+        <li>Select the desired customer from the list</li>
+        <li>The system will load all knowledge bases associated with the selected customer</li>
+    </ol>
+    
+    <h2>Database Integration</h2>
+    
+    <p>Customer information is dynamically retrieved from the central database when accessed. This ensures that the customer list is always current and reflects the latest organizational structure. All customer-knowledge base relationships are maintained in the database for data integrity and consistency.</p>
+    
+    <h1 id="section3">3. Knowledge Base Creation</h1>
+    
+    <h2>Knowledge Base Naming Conventions</h2>
+    
+    <p>Proper naming conventions are essential for maintaining an organized and searchable knowledge base system. The following rules must be adhered to when creating a new knowledge base:</p>
+    
+    <h3>Naming Rules</h3>
+    
+    <table>
+        <tr>
+            <th>Rule</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Minimum Length</td>
+            <td>Must contain more than 3 characters</td>
+        </tr>
+        <tr>
+            <td>Spaces</td>
+            <td>Not allowed - use underscores or hyphens instead</td>
+        </tr>
+        <tr>
+            <td>Special Characters</td>
+            <td>Only underscore (_) and hyphen (-) are permitted</td>
+        </tr>
+        <tr>
+            <td>Character Types</td>
+            <td>Alphanumeric characters, underscores, and hyphens only</td>
+        </tr>
+    </table>
+    
+    <h3>Valid Examples</h3>
+    
+    <div class="success-box">
+        <ul>
+            <li><code>customer_support_kb</code></li>
+            <li><code>product-documentation-2024</code></li>
+            <li><code>hr_policies_v2</code></li>
+            <li><code>technical-specs-Q1</code></li>
+            <li><code>sales_training_materials</code></li>
+        </ul>
+    </div>
+    
+    <h3>Invalid Examples</h3>
+    
+    <div class="error-box">
+        <ul>
+            <li><code>kb</code> - Too short (less than 3 characters)</li>
+            <li><code>customer support</code> - Contains spaces</li>
+            <li><code>docs@2024</code> - Contains special character (@)</li>
+            <li><code>kb#new</code> - Contains special character (#)</li>
+            <li><code>product*guide</code> - Contains special character (*)</li>
+        </ul>
+    </div>
+    
+    <h2>Managing Existing Knowledge Bases</h2>
+    
+    <h3>Viewing Knowledge Bases</h3>
+    
+    <p>Once a customer is selected, all associated knowledge bases are displayed in the "Existing Knowledge Bases" section. Each knowledge base entry shows relevant metadata including creation date, document count, and last modified timestamp.</p>
+    
+    <h3>Search Functionality</h3>
+    
+    <p>The search feature enables rapid location of specific knowledge bases within large collections. The search function operates across knowledge base names and can filter results in real-time as you type.</p>
+    
+    <h3>Delete Functionality</h3>
+    
+    <div class="warning-box">
+        <p><strong>Important:</strong> Deleting a knowledge base is a permanent action that cannot be undone. This operation removes:</p>
+        <ul>
+            <li>All document embeddings</li>
+            <li>Vector database entries</li>
+            <li>Associated metadata</li>
+            <li>Processing history</li>
+        </ul>
+        <p>Always ensure you have backups before deleting a knowledge base.</p>
+    </div>
+    
+    <h1 id="section4">4. Document Management</h1>
+    
+    <h2>Supported Document Formats</h2>
+    
+    <p>The system supports a comprehensive range of document formats to accommodate diverse content types:</p>
+    
+    <table>
+        <tr>
+            <th>Format</th>
+            <th>Extension</th>
+            <th>Use Case</th>
+        </tr>
+        <tr>
+            <td>PDF</td>
+            <td>.pdf</td>
+            <td>Reports, manuals, presentations</td>
+        </tr>
+        <tr>
+            <td>Word Documents</td>
+            <td>.docx</td>
+            <td>Policies, procedures, documentation</td>
+        </tr>
+        <tr>
+            <td>Text Files</td>
+            <td>.txt</td>
+            <td>Plain text content, logs</td>
+        </tr>
+        <tr>
+            <td>HTML Files</td>
+            <td>.html</td>
+            <td>Web content, formatted documents</td>
+        </tr>
+        <tr>
+            <td>CSV Files</td>
+            <td>.csv</td>
+            <td>Structured data, tables</td>
+        </tr>
+        <tr>
+            <td>JSON Files</td>
+            <td>.json</td>
+            <td>Structured data, API responses</td>
+        </tr>
+    </table>
+    
+    <h2>Document Upload Process</h2>
+    
+    <ol>
+        <li>Click on the "Upload Documents" button</li>
+        <li>Select one or multiple files from your local system</li>
+        <li>Review the uploaded files in the "Uploaded Files" section</li>
+        <li>Verify that all required documents are present</li>
+        <li>Remove any unnecessary files using the delete option</li>
+        <li>Proceed to configure processing settings</li>
+    </ol>
+    
+    <div class="info-box">
+        <p><strong>Best Practice:</strong> Organize your documents before upload. Group related content together and ensure file names are descriptive and consistent.</p>
+    </div>
+    
+    <h1 id="section5">5. Processing Settings</h1>
+    
+    <h2>5.1 Retrieval Strategy</h2>
+    
+    <p>The retrieval strategy determines how the system identifies and selects relevant document chunks when processing user queries. Choosing the appropriate strategy significantly impacts answer quality and relevance.</p>
+    
+    <h3>Similarity Search</h3>
+    
+    <h4>Overview</h4>
+    
+    <p>Similarity search employs vector distance calculations to identify documents most semantically similar to the input query. This method calculates cosine similarity between the query embedding and all document embeddings in the vector store.</p>
+    
+    <h4>How It Works</h4>
+    
+    <ol>
+        <li>Query is converted to a vector embedding</li>
+        <li>Cosine similarity is calculated against all document vectors</li>
+        <li>Documents are ranked by similarity score</li>
+        <li>Top-k most similar chunks are retrieved</li>
+    </ol>
+    
+    <h4>When to Use</h4>
+    
+    <ul>
+        <li>Straightforward factual queries</li>
+        <li>Questions with clear, specific intent</li>
+        <li>General question-answering scenarios</li>
+        <li>When precision is more important than diversity</li>
+    </ul>
+    
+    <div class="example">
+        <div class="example-title">Example: Similarity Search</div>
+        <p><strong>Query:</strong> "What is our refund policy?"</p>
+        <p><strong>Process:</strong> The system retrieves the 5 most similar chunks that directly discuss refund policies, procedures, and related terms.</p>
+        <p><strong>Result:</strong> Highly relevant chunks specifically about refunds, all from similar sections of policy documents.</p>
+    </div>
+    
+    <h3>MMR (Maximal Marginal Relevance)</h3>
+    
+    <h4>Overview</h4>
+    
+    <p>MMR balances relevance and diversity to provide comprehensive yet non-redundant information. This algorithm iteratively selects documents that are both relevant to the query and dissimilar to already selected documents.</p>
+    
+    <h4>How It Works</h4>
+    
+    <ol>
+        <li>Calculate relevance scores for all documents</li>
+        <li>Select the most relevant document first</li>
+        <li>For subsequent selections, balance relevance against diversity</li>
+        <li>Penalize documents too similar to already selected ones</li>
+        <li>Continue until k documents are selected</li>
+    </ol>
+    
+    <h4>When to Use</h4>
+    
+    <ul>
+        <li>Complex queries requiring multiple perspectives</li>
+        <li>Exploratory information gathering</li>
+        <li>Broad topic coverage needed</li>
+        <li>Avoiding redundant or repetitive information</li>
+    </ul>
+    
+    <div class="example">
+        <div class="example-title">Example: MMR Search</div>
+        <p><strong>Query:</strong> "Tell me about our company benefits"</p>
+        <p><strong>Process:</strong> The system retrieves diverse chunks covering different benefit categories - health insurance, retirement plans, paid time off, etc.</p>
+        <p><strong>Result:</strong> Comprehensive coverage of multiple benefit types rather than multiple similar chunks about one benefit.</p>
+    </div>
+    
+    <h2>5.2 Number of Reranking Candidates (k)</h2>
+    
+    <h3>Overview</h3>
+    
+    <p>The k parameter controls the initial retrieval breadth before the reranking stage. This setting directly impacts the comprehensiveness of information considered when generating answers.</p>
+    
+    <h3>Processing Pipeline</h3>
+    
+    <p>Understanding how k affects the retrieval pipeline:</p>
+    
+    <ol>
+        <li><strong>Initial Retrieval:</strong> For each rewritten query, retrieve k candidate chunks</li>
+        <li><strong>Query Multiplication:</strong> The system generates 3 query variations</li>
+        <li><strong>Total Candidates:</strong> k chunks × 3 queries = 3k total candidates</li>
+        <li><strong>Reranking:</strong> All 3k chunks are scored for relevance</li>
+        <li><strong>Final Selection:</strong> Top 3 chunks from each query (9 total) are sent to LLM</li>
+    </ol>
+    
+    <div class="example">
+        <div class="example-title">Example: k=5 Pipeline</div>
+        <p><strong>Original Query:</strong> "When did Tarun graduate?"</p>
+        <p><strong>Rewritten Queries:</strong></p>
+        <ol>
+            <li>"Tarun graduation date"</li>
+            <li>"When did Tarun graduate"</li>
+            <li>"when did the tarun graduatred"</li>
+        </ol>
+        <p><strong>Process:</strong></p>
+        <ul>
+            <li>Query 1: Retrieves 5 chunks → Reranked → Top 3 selected</li>
+            <li>Query 2: Retrieves 5 chunks → Reranked → Top 3 selected</li>
+            <li>Query 3: Retrieves 5 chunks → Reranked → Top 3 selected</li>
+        </ul>
+        <p><strong>Result:</strong> 9 highly relevant chunks sent to LLM</p>
+    </div>
+    
+    <h3>Recommended Values</h3>
+    
+    <table>
+        <tr>
+            <th>k Value</th>
+            <th>Total Candidates</th>
+            <th>Final Chunks</th>
+            <th>Use Case</th>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>9</td>
+            <td>9</td>
+            <td>Fast processing, simple queries</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>15</td>
+            <td>9</td>
+            <td>Balanced performance and coverage</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>30</td>
+            <td>9</td>
+            <td>Comprehensive search, complex queries</td>
+        </tr>
+    </table>
+    
+    <h2>5.3 Chunk Size</h2>
+    
+    <h3>Overview</h3>
+    
+    <p>Chunk size determines how documents are segmented into smaller, processable units. The optimal chunk size depends on your content type and the granularity of information required.</p>
+    
+    <h3>Available Options</h3>
+    
+    <ul>
+        <li>20 tokens</li>
+        <li>100 tokens</li>
+        <li>250 tokens</li>
+        <li>500 tokens</li>
+        <li>1000 tokens</li>
+    </ul>
+    
+    <h3>Chunking Examples</h3>
+    
+    <div class="example">
+        <div class="example-title">Sample Document</div>
+        <p>"Our company was founded in 2020. We specialize in AI solutions. Our team has 50 employees. We serve clients globally. Our main products include chatbots and data analytics tools."</p>
+        
+        <p><strong>With Chunk Size = 100 tokens:</strong></p>
+        <ul>
+            <li>Chunk 1: "Our company was founded in 2020. We specialize in AI solutions."</li>
+            <li>Chunk 2: "Our team has 50 employees. We serve clients globally."</li>
+            <li>Chunk 3: "Our main products include chatbots and data analytics tools."</li>
+        </ul>
+        
+        <p><strong>With Chunk Size = 250 tokens:</strong></p>
+        <ul>
+            <li>Chunk 1: "Our company was founded in 2020. We specialize in AI solutions. Our team has 50 employees. We serve clients globally. Our main products include chatbots and data analytics tools."</li>
+        </ul>
+    </div>
+    
+    <h3>Selection Guidelines</h3>
+    
+    <table>
+        <tr>
+            <th>Chunk Size</th>
+            <th>Best For</th>
+            <th>Example Use Cases</th>
+        </tr>
+        <tr>
+            <td>20 tokens</td>
+            <td>Highly granular searches</td>
+            <td>API parameters, definitions, specifications</td>
+        </tr>
+        <tr>
+            <td>100 tokens</td>
+            <td>FAQ and short policies</td>
+            <td>Return policies, shipping terms, brief explanations</td>
+        </tr>
+        <tr>
+            <td>250 tokens</td>
+            <td>Standard documentation</td>
+            <td>Feature explanations, how-to guides, procedures</td>
+        </tr>
+        <tr>
+            <td>500 tokens</td>
+            <td>Detailed explanations</td>
+            <td>Case studies, detailed procedures, tutorials</td>
+        </tr>
+        <tr>
+            <td>1000 tokens</td>
+            <td>Long-form content</td>
+            <td>White papers, research documents, comprehensive guides</td>
+        </tr>
+    </table>
+    
+    <h2>5.4 Overlap Percentage</h2>
+    
+    <h3>Overview</h3>
+    
+    <p>Overlap creates redundancy between adjacent chunks to preserve contextual continuity across chunk boundaries. This prevents information loss when concepts span multiple chunks.</p>
+    
+    <h3>Available Options</h3>
+    
+    <ul>
+        <li>10%</li>
+        <li>15%</li>
+        <li>20%</li>
+        <li>25%</li>
+        <li>50%</li>
+    </ul>
+    
+    <h3>How Overlap Works</h3>
+    
+    <div class="example">
+        <div class="example-title">Example: Chunk Size = 100 tokens, Overlap = 20%</div>
+        
+        <p><strong>Original Text:</strong></p>
+        <p>"Machine learning is a subset of artificial intelligence. It enables computers to learn from data. Deep learning is a subset of machine learning. It uses neural networks with multiple layers."</p>
+        
+        <p><strong>Without Overlap (0%):</strong></p>
+        <ul>
+            <li>Chunk 1: "Machine learning is a subset of artificial intelligence. It enables computers to learn from data."</li>
+            <li>Chunk 2: "Deep learning is a subset of machine learning. It uses neural networks with multiple layers."</li>
+            <li><strong>Issue:</strong> Context break between chunks</li>
+        </ul>
+        
+        <p><strong>With 20% Overlap:</strong></p>
+        <ul>
+            <li>Chunk 1: "Machine learning is a subset of artificial intelligence. It enables computers to learn from data."</li>
+            <li>Chunk 2: "to learn from data. Deep learning is a subset of machine learning. It uses neural networks with multiple layers."</li>
+            <li><strong>Benefit:</strong> Maintains context continuity</li>
+        </ul>
+    </div>
+    
+    <h3>Selection Guidelines</h3>
+    
+    <table>
+        <tr>
+            <th>Overlap %</th>
+            <th>Use Case</th>
+            <th>Characteristics</th>
+        </tr>
+        <tr>
+            <td>10%</td>
+            <td>Distinct topics</td>
+            <td>Minimal overlap, faster processing, independent sections</td>
+        </tr>
+        <tr>
+            <td>15-20%</td>
+            <td>Standard use</td>
+            <td>Balanced context preservation, general documentation</td>
+        </tr>
+        <tr>
+            <td>25%</td>
+            <td>Related concepts</td>
+            <td>Important context preservation, interconnected topics</td>
+        </tr>
+        <tr>
+            <td>50%</td>
+            <td>Technical documentation</td>
+            <td>Maximum context, critical continuity requirements</td>
+        </tr>
+    </table>
+    
+    <h2>5.5 Database Type</h2>
+    
+    <h3>Overview</h3>
+    
+    <p>The vector database stores and retrieves document embeddings efficiently. Selecting the appropriate database type impacts system performance, scalability, and deployment complexity.</p>
+    
+    <h3>FAISS (Facebook AI Similarity Search)</h3>
+    
+    <h4>Characteristics</h4>
+    
+    <ul>
+        <li><strong>Performance:</strong> Extremely fast similarity search</li>
+        <li><strong>Scalability:</strong> Handles millions of vectors efficiently</li>
+        <li><strong>Memory:</strong> Highly optimized for memory usage</li>
+        <li><strong>Production Ready:</strong> Battle-tested in large-scale deployments</li>
+    </ul>
+    
+    <h4>Advantages</h4>
+    
+    <ul>
+        <li>GPU acceleration support</li>
+        <li>Multiple index types for different use cases</li>
+        <li>Excellent performance at scale</li>
+        <li>Low latency query execution</li>
+    </ul>
+    
+    <h4>Best For</h4>
+    
+    <ul>
+        <li>High-query volume applications</li>
+        <li>Performance-critical systems</li>
+        <li>Large document collections (10,000+ documents)</li>
+        <li>Production environments</li>
+    </ul>
+    
+    <h3>ChromaDB</h3>
+    
+    <h4>Characteristics</h4>
+    
+    <ul>
+        <li><strong>Ease of Use:</strong> Simple configuration and deployment</li>
+        <li><strong>Persistence:</strong> Built-in data persistence</li>
+        <li><strong>Development:</strong> Excellent developer experience</li>
+        <li><strong>Integration:</strong> Easy integration with Python applications</li>
+    </ul>
+    
+    <h4>Advantages</h4>
+    
+    <ul>
+        <li>Quick setup and configuration</li>
+        <li>Good documentation and community support</li>
+        <li>Suitable for development and testing</li>
+        <li>Lower complexity for smaller deployments</li>
+    </ul>
+    
+    <h4>Best For</h4>
+    
+    <ul>
+        <li>Development and testing environments</li>
+        <li>Small to medium document collections</li>
+        <li>Simpler deployment requirements</li>
+        <li>Proof of concept projects</li>
+    </ul>
+    
+    <h2>5.6 Embedding Model</h2>
+    
+    <h3>Overview</h3>
+    
+    <p>Embedding models transform text into dense vector representations that capture semantic meaning. The choice of embedding model significantly affects retrieval accuracy and system performance.</p>
+    
+    <h3>text-embedding-ada-002 (OpenAI)</h3>
+    
+    <table>
+        <tr>
+            <th>Specification</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Dimensions</td>
+            <td>1536</td>
+        </tr>
+        <tr>
+            <td>Provider</td>
+            <td>OpenAI (API-based)</td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td>Moderate</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>Good general purpose accuracy</td>
+        </tr>
+    </table>
+    
+    <h4>Best For</h4>
+    
+    <ul>
+        <li>General purpose applications</li>
+        <li>Balanced cost-performance ratio</li>
+        <li>Proven reliability in production</li>
+        <li>Standard document types</li>
+    </ul>
+    
+    <h3>text-embedding-3-large (OpenAI)</h3>
+    
+    <table>
+        <tr>
+            <th>Specification</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Dimensions</td>
+            <td>3072</td>
+        </tr>
+        <tr>
+            <td>Provider</td>
+            <td>OpenAI (API-based)</td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td>Higher</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>State-of-the-art accuracy</td>
+        </tr>
+    </table>
+    
+    <h4>Best For</h4>
+    
+    <ul>
+        <li>Maximum accuracy requirements</li>
+        <li>Critical applications</li>
+        <li>Complex domain-specific content</li>
+        <li>High-value use cases</li>
+    </ul>
+    
+    <h3>all-MiniLM-L6-v2 (Open Source)</h3>
+    
+    <table>
+        <tr>
+            <th>Specification</th>
+            <th>Value</th>
+        </tr>
+        <tr>
+            <td>Dimensions</td>
+            <td>384</td>
+        </tr>
+        <tr>
+            <td>Provider</td>
+            <td>Open Source (Self-hosted)</td>
+        </tr>
+        <tr>
+            <td>Cost</td>
+            <td>Free</td>
+        </tr>
+        <tr>
+            <td>Performance</td>
+            <td>Good for cost-effective solutions</td>
+        </tr>
+    </table>
+    
+    <h4>Best For</h4>
+    
+    <ul>
+        <li>Budget-constrained projects</li>
+        <li>Privacy-sensitive applications</li>
+        <li>Local deployments</li>
+        <li>Development and testing</li>
+    </ul>
+    
+    <h3>Model Comparison and Recommendations</h3>
+    
+    <div class="info-box">
+        <p><strong>Recommendation Guidelines:</strong></p>
+        <ul>
+            <li><strong>High Accuracy Needed:</strong> text-embedding-3-large</li>
+            <li><strong>Balanced Approach:</strong> text-embedding-ada-002</li>
+            <li><strong>Budget/Privacy Constraints:</strong> all-MiniLM-L6-v2</li>
+        </ul>
+    </div>
+    
+    <h2>5.7 Guidelines Configuration</h2>
+    
+    <h3>Guidelines Text Input</h3>
+    
+    <p>Provide specific instructions that govern how the system responds to queries. These guidelines ensure consistency, accuracy, and alignment with organizational policies.</p>
+    
+    <h4>Example Guidelines</h4>
+    
+    <div class="code-block">
+- Always respond in a professional tone
+- If information is not found, suggest contacting support
+- Prioritize latest policy documents over older versions
+- Include policy version numbers in responses
+- Cite source documents when providing factual information
+- Avoid speculation beyond documented information
+- Maintain confidentiality of sensitive data
+    </div>
+    
+    <h3>Guideline Document Upload</h3>
+    
+    <h4>Specifications</h4>
+    
+    <table>
+        <tr>
+            <th>Parameter</th>
+            <th>Requirement</th>
+        </tr>
+        <tr>
+            <td>Supported Formats</td>
+            <td>.txt, .pdf</td>
+        </tr>
+        <tr>
+            <td>Maximum File Size</td>
+            <td>5MB</td>
+        </tr>
+        <tr>
+            <td>Purpose</td>
+            <td>Detailed instruction documents for response generation</td>
+        </tr>
+    </table>
+    
+    <h4>Use Case Example</h4>
+    
+    <p>Upload a comprehensive "Response Style Guide" document containing:</p>
+    
+    <ul>
+        <li>Brand voice and tone guidelines</li>
+        <li>Communication standards</li>
+        <li>Formatting requirements</li>
+        <li>Compliance and regulatory requirements</li>
+        <li>Industry-specific terminology</li>
+        <li>Escalation procedures</li>
+    </ul>
+    
+    <h2>5.8 Process Documents</h2>
+    
+    <h3>Processing Workflow</h3>
+    
+    <p>After configuring all settings, initiate document processing by following these steps:</p>
+    
+    <ol>
+        <li>Review all uploaded documents and configurations</li>
+        <li>Click the "Process Documents" button</li>
+        <li>Monitor the processing progress indicator</li>
+        <li>Wait for completion confirmation</li>
+    </ol>
+    
+    <h3>Processing Operations</h3>
+    
+    <p>During processing, the system performs the following operations:</p>
+    
+    <ol>
+        <li><strong>Document Parsing:</strong> Extract text from uploaded files</li>
+        <li><strong>Text Cleaning:</strong> Remove formatting artifacts and normalize text</li>
+        <li><strong>Chunking:</strong> Split documents according to configured chunk size and overlap</li>
+        <li><strong>Embedding Generation:</strong> Create vector embeddings for each chunk</li>
+        <li><strong>Vector Storage:</strong> Store embeddings in the selected database</li>
+        <li><strong>Metadata Indexing:</strong> Save chunk metadata and relationships</li>
+        <li><strong>Configuration Storage:</strong> Persist processing settings for future queries</li>
+    </ol>
+    
+    <h3>Processing Time Factors</h3>
+    
+    <p>Processing duration depends on several factors:</p>
+    
+    <ul>
+        <li><strong>Number of Documents:</strong> More documents require proportionally more time</li>
+        <li><strong>Document Size:</strong> Larger files take longer to process</li>
+        <li><strong>Chunk Size:</strong> Smaller chunks create more embeddings, increasing processing time</li>
+        <li><strong>Overlap Percentage:</strong> Higher overlap generates more chunks</li>
+        <li><strong>Embedding Model:</strong> API-based models may have rate limits</li>
+        <li><strong>Database Type:</strong> Write performance varies by database</li>
+    </ul>
+    
+    <div class="info-box">
+        <p><strong>Processing Status:</strong> The system provides real-time progress updates during processing. Once complete, the knowledge base is immediately ready for querying.</p>
+    </div>
+    
+    <h1 id="section6">6. Query Processing Pipeline</h1>
+    
+    <h2>Overview</h2>
+    
+    <p>The query processing pipeline employs a multi-stage approach to maximize retrieval accuracy and answer quality. This sophisticated pipeline combines query enhancement, retrieval, reranking, and response generation.</p>
+    
+    <h2>Model Selection for Answer Generation</h2>
+    
+    <p>The system supports multiple language models for generating responses. Each model offers different capabilities and performance characteristics:</p>
+    
+    <table>
+        <tr>
+            <th>Model</th>
+            <th>Description</th>
+            <th>Best For</th>
+        </tr>
+        <tr>
+            <td>GEMMA</td>
+            <td>Efficient open-source model</td>
+            <td>Cost-effective deployments, general queries</td>
+        </tr>
+        <tr>
+            <td>GPT_OSS</td>
+            <td>Open-source GPT alternative</td>
+            <td>Privacy-focused applications, local deployment</td>
+        </tr>
+        <tr>
+            <td>MISTRAL</td>
+            <td>High-performance open model</td>
+            <td>Complex reasoning, detailed explanations</td>
+        </tr>
+        <tr>
+            <td>GPT-4o</td>
+            <td>OpenAI's most capable model</td>
+            <td>Maximum accuracy, complex queries, critical applications</td>
+        </tr>
+    </table>
+    
+    <h2>Query Enhancement Pipeline</h2>
+    
+    <h3>Step 1: Query Rewriting</h3>
+    
+    <p>The system automatically generates multiple variations of the original query to improve retrieval coverage and handle potential ambiguities.</p>
+    
+    <div class="example">
+        <div class="example-title">Query Rewriting Example</div>
+        
+        <p><strong>Original Query:</strong> "when did the tarun graduatred"</p>
+        
+        <p><strong>Rewritten Queries:</strong></p>
+        <ol>
+            <li>"Tarun graduation date"</li>
+            <li>"When did Tarun graduate"</li>
+            <li>"when did the tarun graduatred"</li>
+        </ol>
+        
+        <p><strong>Purpose:</strong> Creates multiple variations to capture different phrasings and improve retrieval success rate</p>
+    </div>
+    
+    <h4>Rewriting Strategies</h4>
+    
+    <ul>
+        <li><strong>Spelling Correction:</strong> Fixes typos and misspellings</li>
+        <li><strong>Rephrasing:</strong> Generates alternative phrasings</li>
+        <li><strong>Keyword Extraction:</strong> Creates keyword-focused queries</li>
+        <li><strong>Original Preservation:</strong> Retains original query for comparison</li>
+    </ul>
+    
+    <h3>Step 2: Document Retrieval</h3>
+    
+    <p>For each rewritten query, the system retrieves k candidate chunks from the vector database using the configured retrieval strategy.</p>
+    
+    <div class="info-box">
+        <p><strong>Retrieval Formula:</strong> Total Retrieved Chunks = Number of Rewritten Queries × k</p>
+        <p><strong>Example:</strong> 3 queries × 5 candidates = 15 total chunks retrieved</p>
+    </div>
+    
+    <h3>Step 3: Reranking</h3>
+    
+    <p>The reranking stage applies a specialized model to score all retrieved chunks based on their relevance to each specific query. This process ensures that only the most pertinent information is passed to the language model.</p>
+    
+    <h4>Reranking Process</h4>
+    
+    <ol>
+        <li>All retrieved chunks are evaluated against each query</li>
+        <li>A relevance score is computed for each chunk-query pair</li>
+        <li>Chunks are ranked by score for each query</li>
+        <li>Top 3 chunks from each query are selected</li>
+        <li>Final set of 9 chunks is prepared for response generation</li>
+    </ol>
+    
+    <div class="example">
+        <div class="example-title">Reranking Example</div>
+        
+        <p><strong>Input:</strong> 15 candidate chunks (5 per query)</p>
+        <p><strong>Process:</strong></p>
+        <ul>
+            <li>Query 1: 5 chunks scored and ranked → Top 3 selected</li>
+            <li>Query 2: 5 chunks scored and ranked → Top 3 selected</li>
+            <li>Query 3: 5 chunks scored and ranked → Top 3 selected</li>
+        </ul>
+        <p><strong>Output:</strong> 9 highly relevant chunks sent to LLM</p>
+    </div>
+    
+    <h1 id="section7">7. Response Generation</h1>
+    
+    <h2>Tree of Thought Approach</h2>
+    
+    <p>The system employs a Tree of Thought reasoning methodology to generate accurate and well-reasoned responses. This approach involves generating multiple reasoning paths and selecting the most confident answer.</p>
+    
+    <h3>Response Structure</h3>
+    
+    <p>Each response includes the following components:</p>
+    
+    <ul>
+        <li><strong>Answer:</strong> The final, concise answer to the query</li>
+        <li><strong>Rewritten Queries:</strong> All query variations used in retrieval</li>
+        <li><strong>Thoughts:</strong> Multiple reasoning paths considered</li>
+        <li><strong>Best Thought:</strong> The selected reasoning path with highest confidence</li>
+    </ul>
+    
+    <h3>Example Response</h3>
+    
+    <div class="code-block">
+{
+  "answer": "Tarun graduated in May 2024.",
+  
+  "rewritten_queries": [
+    "Tarun graduation year",
+    "When did Tarun graduate",
+    "when did the tarun graduatred"
+  ],
+  
+  "thoughts": [
+    "Thought 1: Tarun's education section in his resume states that he pursued 
+    a Bachelor of Engineering in Artificial Intelligence and Machine Learning 
+    at Alvas Institute of Engineering and Technology from October 2020 to May 
+    2024. Since this timeline aligns with typical graduation dates for 
+    undergraduate programs, it is reasonable to infer that Tarun graduated in 
+    May 2024.",
+    
+    "Thought 2: Tarun's work experience includes internships starting in March 
+    2024 and October 2024. These internships suggest that he was actively 
+    working in his field during and shortly after completing his undergraduate 
+    studies. Based on this, his graduation likely occurred around May 2024, 
+    as indicated in his education timeline.",
+    
+    "Thought 3: Tarun's educational timeline indicates he completed his SSLC 
+    (high school equivalent) in April 2018, intermediate (pre-university) in 
+    April 2020, and then pursued his bachelor's degree from October 2020 to 
+    May 2024. Following this sequential progression, his graduation year for 
+    his bachelor's degree is most likely May 2024."
+  ],
+  
+  "best_thought": "Thought 1: Tarun's education section in his resume states 
+  that he pursued a Bachelor of Engineering in Artificial Intelligence and 
+  Machine Learning at Alvas Institute of Engineering and Technology from 
+  October 2020 to May 2024. Since this timeline aligns with typical 
+  graduation dates for undergraduate programs, it is reasonable to infer 
+  that Tarun graduated in May 2024."
+}
+    </div>
+    
+    <h2>Thought Process Breakdown</h2>
+    
+    <h3>Thought 1: Primary Evidence Analysis</h3>
+    
+    <ul>
+        <li>Reviews main source of information</li>
+        <li>Identifies direct evidence</li>
+        <li>Makes primary inference</li>
+        <li>Assesses confidence level</li>
+    </ul>
+    
+    <h3>Thought 2: Cross-Reference Validation</h3>
+    
+    <ul>
+        <li>Checks supporting information from other sections</li>
+        <li>Validates consistency across sources</li>
+        <li>Identifies corroborating evidence</li>
+        <li>Flags any contradictions</li>
+    </ul>
+    
+    <h3>Thought 3: Contextual Analysis</h3>
+    
+    <ul>
+        <li>Examines broader context</li>
+        <li>Considers temporal relationships</li>
+        <li>Evaluates logical progression</li>
+        <li>Confirms timeline consistency</li>
+    </ul>
+    
+    <h3>Best Thought Selection</h3>
+    
+    <p>The system evaluates each thought path based on:</p>
+    
+    <ul>
+        <li><strong>Evidence Strength:</strong> Quality and directness of supporting information</li>
+        <li><strong>Logical Coherence:</strong> Internal consistency of reasoning</li>
+        <li><strong>Confidence Score:</strong> Statistical certainty of the conclusion</li>
+        <li><strong>Source Reliability:</strong> Trustworthiness of referenced documents</li>
+    </ul>
+    
+    <h2>Benefits of Tree of Thought Approach</h2>
+    
+    <h3>Query Enhancement</h3>
+    
+    <ul>
+        <li>Multiple query variations capture different phrasings and perspectives</li>
+        <li>Improves recall of relevant information</li>
+        <li>Handles typos and ambiguities effectively</li>
+        <li>Increases robustness of retrieval</li>
+    </ul>
+    
+    <h3>Reranking Advantages</h3>
+    
+    <ul>
+        <li>Ensures only the most relevant chunks reach the LLM</li>
+        <li>Reduces noise and irrelevant information</li>
+        <li>Improves answer quality and accuracy</li>
+        <li>Optimizes token usage in LLM context</li>
+    </ul>
+    
+    <h3>Transparent Reasoning</h3>
+    
+    <ul>
+        <li>Multiple perspectives are explicitly considered</li>
+        <li>Reasoning process is visible and auditable</li>
+        <li>Best answer is selected based on evidence strength</li>
+        <li>Facilitates debugging and system improvement</li>
+    </ul>
+    
+    <h3>Structured Responses</h3>
+    
+    <ul>
+        <li>Status indicators for error handling</li>
+        <li>Clear answer presentation</li>
+        <li>Reasoning transparency for verification</li>
+        <li>Traceable decision-making process</li>
+    </ul>
+    
+    <h1 id="section8">8. Best Practices</h1>
+    
+    <h2>Document Preparation</h2>
+    
+    <h3>Content Organization</h3>
+    
+    <ul>
+        <li><strong>Clear Structure:</strong> Use well-defined sections and headings</li>
+        <li><strong>Consistent Formatting:</strong> Maintain uniform styling across documents</li>
+        <li><strong>Metadata Inclusion:</strong> Add creation dates, version numbers, and authors</li>
+        <li><strong>Regular Updates:</strong> Keep documents current and remove outdated information</li>
+    </ul>
+    
+    <h3>Document Quality</h3>
+    
+    <ul>
+        <li>Ensure accuracy and factual correctness</li>
+        <li>Use clear, unambiguous language</li>
+        <li>Avoid excessive jargon unless necessary</li>
+        <li>Include examples and clarifications where appropriate</li>
+        <li>Maintain consistent terminology throughout</li>
+    </ul>
+    
+    <h2>Setting Selection and Optimization</h2>
+    
+    <h3>Initial Configuration</h3>
+    
+    <p>Start with recommended default settings:</p>
+    
+    <table>
+        <tr>
+            <th>Setting</th>
+            <th>Recommended Default</th>
+        </tr>
+        <tr>
+            <td>Retrieval Strategy</td>
+            <td>Similarity Search</td>
+        </tr>
+        <tr>
+            <td>Reranking Candidates (k)</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Chunk Size</td>
+            <td>250 tokens</td>
+        </tr>
+        <tr>
+            <td>Overlap Percentage</td>
+            <td>15-20%</td>
+        </tr>
+        <tr>
+            <td>Database</td>
+            <td>FAISS (production), ChromaDB (development)</td>
+        </tr>
+        <tr>
+            <td>Embedding Model</td>
+            <td>text-embedding-ada-002</td>
+        </tr>
+    </table>
+    
+    <h3>Optimization Guidelines</h3>
+    
+    <ul>
+        <li><strong>Narrative Content:</strong> Use larger chunks (500-1000 tokens)</li>
+        <li><strong>Technical Specifications:</strong> Use smaller chunks (100-250 tokens)</li>
+        <li><strong>Interconnected Topics:</strong> Increase overlap (25-50%)</li>
+        <li><strong>Independent Sections:</strong> Use minimal overlap (10-15%)</li>
+    </ul>
+    
+    <h3>Iterative Refinement</h3>
+    
+    <ol>
+        <li>Deploy with default settings</li>
+        <li>Monitor query performance and user feedback</li>
+        <li>Identify patterns in unsuccessful queries</li>
+        <li>Adjust settings incrementally</li>
+        <li>Measure impact of changes</li>
+        <li>Document optimal configurations for different use cases</li>
+    </ol>
+    
+    <h2>Query Optimization</h2>
+    
+    <h3>Effective Query Formulation</h3>
+    
+    <ul>
+        <li><strong>Be Specific:</strong> Include relevant details and context</li>
+        <li><strong>Use Natural Language:</strong> Write queries as you would ask a human</li>
+        <li><strong>Avoid Ambiguity:</strong> Clarify pronouns and references</li>
+        <li><strong>Include Context:</strong> Provide necessary background information</li>
+    </ul>
+    
+    <div class="example">
+        <div class="example-title">Query Examples</div>
+        
+        <p><strong>Poor Query:</strong> "What is the policy?"</p>
+        <p><strong>Better Query:</strong> "What is the refund policy for software subscriptions?"</p>
+        
+        <p><strong>Poor Query:</strong> "Tell me about it"</p>
+        <p><strong>Better Query:</strong> "Tell me about the employee onboarding process for remote workers"</p>
+    </div>
+    
+    <h3>Handling Unsatisfactory Results</h3>
+    
+    <ul>
+        <li>Rephrase the query using different terminology</li>
+        <li>Break complex questions into simpler sub-questions</li>
+        <li>Add more context or constraints</li>
+        <li>Verify that relevant documents exist in the knowledge base</li>
+    </ul>
+    
+    <h2>System Maintenance</h2>
+    
+    <h3>Regular Updates</h3>
+    
+    <ul>
+        <li><strong>Content Review:</strong> Quarterly review of document accuracy</li>
+        <li><strong>Obsolete Content:</strong> Remove or archive outdated documents</li>
+        <li><strong>New Content:</strong> Add new documents as they become available</li>
+        <li><strong>Version Control:</strong> Track document versions and changes</li>
+    </ul>
+    
+    <h3>Performance Monitoring</h3>
+    
+    <ul>
+        <li>Track query success rates</li>
+        <li>Monitor response times</li>
+        <li>Analyze user feedback</li>
+        <li>Identify common failure patterns</li>
+        <li>Log system errors and warnings</li>
+    </ul>
+    
+    <h3>Continuous Improvement</h3>
+    
+    <ul>
+        <li>Review failed queries and analyze causes</li>
+        <li>Adjust settings based on performance data</li>
+        <li>Update guidelines based on user needs</li>
+        <li>Incorporate user feedback into system refinements</li>
+        <li>Test new features in controlled environments</li>
+    </ul>
+    
+    <h1 id="section9">9. Troubleshooting</h1>
+    
+    <h2>Poor Answer Quality</h2>
+    
+    <h3>Symptoms</h3>
+    
+    <ul>
+        <li>Irrelevant or inaccurate responses</li>
+        <li>Missing critical information</li>
+        <li>Contradictory answers</li>
+        <li>Overly generic responses</li>
+    </ul>
+    
+    <h3>Solutions</h3>
+    
+    <table>
+        <tr>
+            <th>Issue</th>
+            <th>Solution</th>
+            <th>Setting to Adjust</th>
+        </tr>
+        <tr>
+            <td>Not enough context</td>
+            <td>Increase candidates retrieved</td>
+            <td>Increase k value (5 → 10)</td>
+        </tr>
+        <tr>
+            <td>Context breaks</td>
+            <td>Improve chunk continuity</td>
+            <td>Increase overlap (15% → 25%)</td>
+        </tr>
+        <tr>
+            <td>Too granular</td>
+            <td>Larger context windows</td>
+            <td>Increase chunk size (250 → 500)</td>
+        </tr>
+        <tr>
+            <td>Redundant information</td>
+            <td>Improve diversity</td>
+            <td>Switch to MMR retrieval</td>
+        </tr>
+    </table>
+    
+    <h2>Slow Processing</h2>
+    
+    <h3>Symptoms</h3>
+    
+    <ul>
+        <li>Long document processing times</li>
+        <li>Slow query responses</li>
+        <li>System timeouts</li>
+        <li>High resource utilization</li>
+    </ul>
+    
+    <h3>Solutions</h3>
+    
+    <table>
+        <tr>
+            <th>Cause</th>
+            <th>Solution</th>
+        </tr>
+        <tr>
+            <td>Too many small chunks</td>
+            <td>Increase chunk size to reduce total chunk count</td>
+        </tr>
+        <tr>
+            <td>High overlap</td>
+            <td>Reduce overlap percentage (25% → 15%)</td>
+        </tr>
+        <tr>
+            <td>Database performance</td>
+            <td>Switch to FAISS for better performance</td>
+        </tr>
+        <tr>
+            <td>Large retrieval sets</td>
+            <td>Reduce k value if appropriate</td>
+        </tr>
+        <tr>
+            <td>API rate limits</td>
+            <td>Implement request throttling or use local models</td>
+        </tr>
+    </table>
+    
+    <h2>Missing Information</h2>
+    
+    <h3>Symptoms</h3>
+    
+    <ul>
+        <li>System cannot find relevant information</li>
+        <li>Answers indicate information is not available</li>
+        <li>Incomplete responses</li>
+    </ul>
+    
+    <h3>Diagnostic Steps</h3>
+    
+    <ol>
+        <li><strong>Verify Document Upload:</strong> Confirm all relevant documents are uploaded and processed</li>
+        <li><strong>Check Document Content:</strong> Ensure the information actually exists in source documents</li>
+        <li><strong>Review Query Phrasing:</strong> Try alternative phrasings and terminology</li>
+        <li><strong>Increase Retrieval Breadth:</strong> Increase k value for broader search</li>
+        <li><strong>Check Chunk Boundaries:</strong> Information might be split across chunks</li>
+        <li><strong>Verify Embedding Quality:</strong> Consider upgrading embedding model</li>
+    </ol>
+    
+    <h3>Solutions</h3>
+    
+    <ul>
+        <li>Add missing documents to knowledge base</li>
+        <li>Reprocess with different chunk settings</li>
+        <li>Use higher-quality embedding models</li>
+        <li>Increase overlap to preserve context</li>
+        <li>Switch retrieval strategy (Similarity → MMR)</li>
+    </ul>
+    
+    <h2>System Errors</h2>
+    
+    <h3>Common Errors and Resolutions</h3>
+    
+    <table>
+        <tr>
+            <th>Error</th>
+            <th>Cause</th>
+            <th>Resolution</th>
+        </tr>
+        <tr>
+            <td>Database connection failed</td>
+            <td>Database service unavailable</td>
+            <td>Restart database service, check connectivity</td>
+        </tr>
+        <tr>
+            <td>Embedding API error</td>
+            <td>API key invalid or rate limited</td>
+            <td>Verify API credentials, check rate limits</td>
+        </tr>
+        <tr>
+            <td>Processing timeout</td>
+            <td>Documents too large</td>
+            <td>Process documents in smaller batches</td>
+        </tr>
+        <tr>
+            <td>Memory error</td>
+            <td>Insufficient system resources</td>
+            <td>Increase system memory or reduce chunk overlap</td>
+        </tr>
+    </table>
+    
+    <h2>Contact and Support</h2>
+    
+    <div class="info-box">
+        <p><strong>For Additional Assistance:</strong></p>
+        <ul>
+            <li>Consult system logs for detailed error messages</li>
+            <li>Review configuration settings for inconsistencies</li>
+            <li>Contact technical support with specific error details</li>
+            <li>Provide sample queries and expected outcomes</li>
+        </ul>
+    </div>
+    
+    <h1 style="border:none; page-break-before:auto;">Conclusion</h1>
+    
+    <p>The Knowledge Base System provides a comprehensive, intelligent solution for document-based question answering. By leveraging advanced natural language processing techniques, vector embeddings, and a robust retrieval-and-reranking pipeline, it delivers accurate, transparent, and auditable responses. With flexible document ingestion, configurable chunking and overlap, multi-model support, and production-grade vector stores, the platform scales from prototypes to enterprise deployments. Following the best practices outlined above will help you sustain high answer quality, strong performance, and reliable operations over time.</p>
+
+    <div class="footer">
+        &copy; 2025 Knowledge Base System By Tarun D R .
+    </div>
+
+</body>
+</html>

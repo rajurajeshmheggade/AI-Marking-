@@ -1,0 +1,752 @@
+slno,endpoint_name,input_json,output_json,
+1,/subject-list (GET),OrgCode,subjectcode,
+,,CustCode,subjectname,
+,,UserCode,totaltokenusage,
+,,,isReady,
+,,,subjectid,
+,,,kbpath,
+,,,guidelinepath,
+,,,workspacecount,
+,,,status,
+,,,,
+2,/list-workspace (POST),OrgCode,WorkspaceID,
+,,CustCode,WorkspaceName,
+,,SUBJECTCODE,CreatedDate,
+,,todate,status,
+,,fromdate,candidatecount,
+,,usercode,standardcount,
+,,,usercode,
+,,,totaltokenusage,
+,,,,
+3,/create-workspace (POST),WorkspaceName,success,
+,,OrgCode,message,
+,,CustCode,WorkspaceId,
+,,SubjectCode,,
+,,UserCode,,
+,,candidateCount,,
+,,standardCount,,
+,,workspaceId,,
+,,,,
+4,/upload-pdfs (POST),folder_name,batch_id,
+,,OrgCode,files_queued,
+,,CustCode,files_saved json ,
+,,SUBJECTCODE,poll_url,
+,,subjectname,status,
+,,number_of_questions,workspace_id,
+,,workspacename,workspace_name,
+,,CustCode,,
+,,WorkspaceId,,
+,,file,,
+,,,,
+5,/candidate-process-data (GET),OrgCode,folderName,folderName
+,,CustCode,candidateCount,registrationNumber
+,,SubjectCode,totalCandidateCount,segmentationStatus
+,,WorkspaceId,remainingCount,ocrStatus
+,,UserCode,totalTokenUsage,markingStatus
+,,,userCode,approvedStatus
+,,,,standardCount
+,,,,metStandardCount
+,,,,maxScore
+,,,,obtainedScore
+,,,,isReview
+,,,,userCode
+,,,,
+6,/question-data (GET),OrgCode,qno,ref2Data
+,,CustCode,questionLabel,
+,,SubjectCode,questionText json,
+,,,rubric,
+,,,Marks,
+,,,,
+7,/get-candidate-info (GET),registrationnumber,"[
+    {
+        ""firstName"": ""Travor Takunda"",
+        ""lastName"": ""Chapfika"",
+        ""registrationNumber"": ""2334631"",
+        ""centerName"": ""Page College"",
+        ""centerAddress"": ""34 Jason Mayo Ave Corner Rezende Street Harare Travlos House"",
+        ""subjectCode"": ""BJ05"",
+        ""orgCode"": ""ICMELIVE"",
+        ""custCode"": ""ICME"",
+        ""numberOfQuestions"": 0,
+        ""dateOfExamination"": ""2026-05-06T00:00:00"",
+        ""countryName"": ""Zimbabwe"",
+        ""workspaceId"": 568,
+        ""folderName"": """",
+        ""userCode"": ""lahari"",
+        ""scriptPath"": ""ICME/ICMELIVE/Broadcast Journalism/rajuu/2334631""
+    }
+]",
+,,workspaceid,,
+,,,,
+,,,,
+,,,,
+8,/get-process-data (GET),OrgCode,status,
+,,CustCode,count,
+,,usercode,data," [
+        {
+            ""candidateId"": 9759,
+            ""processData"": {
+                ""status"": ""completed"",
+                ""orgcode"": ""ICMELIVE"",
+                ""custcode"": ""ICME"",
+                ""isupdate"": 0,
+                ""workspace"": 568,
+                ""blank_pages"": [
+                ],
+                ""segmentdata"": [],
+                ""subjectcode"": ""BJ05"",
+                ""total_pages"": 12,
+                ""pages_to_review"": [],
+                ""total_questions"": 8,
+                ""auto_mapped_pages"": 7,
+                ""questions_answered"": 0,
+                ""registration_number"": ""2334631"",
+                ""unanswered_questions"": [
+                ]
+            },
+            ""workspaceId"": 568,
+            ""remainingCount"": 1,
+            ""totalCandidateCount"": 1,
+            ""scriptPath"": ""ICME/ICMELIVE/Broadcast Journalism/rajuu/2334631""
+        }
+    ]"
+,,type,,
+,,registernumber,,
+,,subjectcode,,
+,,workspaceid,,
+,,adstatus,,
+,,,,
+,,,,
+9,/run-evaluation (POST),OrgCode,success,
+,,CustCode,message,
+,,SubjectCode,evalResult,
+,,WorkspaceId,,
+,,CandidateId,,
+,,questionData,,
+,,ocrData,,
+10,/save-ocr-data (POST),"{
+    ""custcode"": ""ICME"",
+    ""orgcode"": ""ICMELIVE"",
+    ""usercode"": ""lahari"",
+    ""registrationnumber"": ""2334540"",
+    ""workspaceid"": 272,
+    ""ocrdata"": {
+        ""summary"": {
+            ""standards_marks"": 5,
+            ""standards_max_marks"": 5,
+            ""standards_percentage"": ""100.00%""
+        },
+        ""ocr_extracted_text"": {
+     
+        },
+        ""standards_evaluation"": {
+            ""2"": {
+                ""marks_awarded"": 1,
+                ""standards_met"": {
+                    ""standard_1"": {
+                        ""marks"": 0.25,
+                        ""reason"": ""The student's answer correctly starts with the numeric digit '2'.""
+                    },
+                    ""standard_2"": {
+                        ""marks"": 0.25,
+                        ""reason"": ""The student used alphabetic list markers (a, b, c, d). The rule for question 2 only penalizes the use of consecutive Arabic numerals, so no marks are deducted.""
+                    },
+                    ""standard_3"": {
+                        ""marks"": 0.25,
+                        ""reason"": ""Full marks awarded as Question 2 is the first question in the submission.""
+                    },
+                    ""standard_4"": {
+                        ""marks"": 0.25,
+                        ""reason"": ""The student did not rewrite the question in their answer.""
+                    }
+                }
+            },
+            
+        }
+    },
+    ""remainingcount"": 5,
+    ""totalcandidatecount"": 1,
+    ""scriptpath"": ""ICME/ICMELIVE/Broadcast Journalism/BJ_New_2_29062026/Broadcast Journalism/2334540""
+}",success,
+,,,,
+,,,,
+,,,,
+11,/recalculate-standards (POST),"{
+    ""orgcode"": ""ICMELIVE"",
+    ""custcode"": ""ICME"",
+    ""usercode"": ""lahari"",
+    ""isall"": 0,
+    ""registrationnumber"": ""2334540"",
+    ""subjectcode"": ""BJ05"",
+    ""workspaceid"": 272,
+    ""questions"": [
+        1
+    ],
+    ""userprompt"": """",
+    ""processdata"": {
+        ""summary"": {
+            ""standards_marks"": 5,
+            ""standards_max_marks"": 5,
+            ""standards_percentage"": ""100.00%""
+        },
+        ""ocr_extracted_text"": {
+         
+        },
+        ""standards_evaluation"": {
+            
+                }
+            }
+        }
+    }
+}","{
+    ""status"": ""SUCCESS"",
+    ""workspaceid"": 272,
+    ""registrationnumber"": ""2334540"",
+    ""processdata"": {
+        ""summary"": {
+            ""standards_marks"": 4.75,
+            ""standards_max_marks"": 5,
+            ""standards_percentage"": ""95.00%""
+        },
+        ""ocr_extracted_text"": {
+       
+            }
+        },
+        ""standards_evaluation"": {
+      
+    },
+    ""evaluation"": {
+        ""status"": ""SUCCESS"",
+        ""workspaceid"": 272,
+        ""registrationnumber"": ""2334540"",
+        ""processdata"": {
+            ""registration_number"": ""2334540"",
+            ""eval_data"": ",
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+12,/save-evaluation-data (POST),"{
+    ""orgcode"": ""ICMELIVE"",
+    ""custcode"": ""ICME"",
+    ""obtainedscore"": 32,
+    ""evaluateddata"": {
+        ""eval_data"": {
+            ""1"": {
+                ""rank"": 5,
+                ""feedback"": ""Good progress, but some parts of this question could be strengthened. To improve: Ensure you address the specific topic requested in the marking criteria, which was adversarial interviewing.; Explain the objective of the journalistic style, such as challenging public figures on controversial issues.; Discuss why this method is used, specifically regarding the exposure of inconsistencies in a subject's statements."",
+                ""marks_max"": 20,
+                ""marks_awarded"": 0,
+                ""extracted_text"": ""2\na) 24-hour news.\nThese kind or type of news are those that run throughout the day.\nIt also includes live reporting or live reportage. They commonly use satellites.\nThey include examples such as the CNN, BBC, World News and France24.\n\nb) Documentary.\nThey run for about 15 to 20 minutes. They comprise of extensive research.\nThey are of real and dramatized events.\nThey are accompanied by a series of images and video clips and a voice over describing how each of the event happened or how they took place. For example The Titanic.\n\nc) The bulletin.\nThey are aired at anytime of the day.\nThey mostly comprise of current events or breaking news.\nThey take about 3 to 5 minutes.\nExample of a bulletin is Breaking News.\n\nd) Vérité\nComprises of an individual speaking.\nThe story told should be as if they happen.\nThey only have actualities.\nOnly has narration but only an individual is speaking."",
+                ""missing_points"": [
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Definition of adversarial interview"",
+                        ""how_to_improve"": ""Ensure you address the specific topic requested in the marking criteria, which was adversarial interviewing.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Purpose of holding interviewees to account"",
+                        ""how_to_improve"": ""Explain the objective of the journalistic style, such as challenging public figures on controversial issues.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Significance of the technique"",
+                        ""how_to_improve"": ""Discuss why this method is used, specifically regarding the exposure of inconsistencies in a subject's statements.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Identification of confrontational approach"",
+                        ""how_to_improve"": ""Describe the nature of the interaction between the interviewer and the subject.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Definition of a grabbed interview as unscheduled or spontaneous."",
+                        ""how_to_improve"": ""Ensure the answer directly addresses the specific topic of 'grabbed interviews' rather than general news formats.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Characteristics of a grabbed interview such as brief questions or limited preparation."",
+                        ""how_to_improve"": ""Focus on the technical execution and preparation style of the interview type requested.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""The significance of grabbed interviews, such as capturing immediate reactions."",
+                        ""how_to_improve"": ""Explain the purpose or impact of the specific journalistic technique in question.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""A valid example of a grabbed interview."",
+                        ""how_to_improve"": ""Provide a concrete scenario where a reporter intercepts a subject in a public setting.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Definition of a hard news interview"",
+                        ""how_to_improve"": ""Ensure you address the specific topic of the question; the answer provided definitions for news formats rather than the 'hard news interview' specifically.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Context of use (news bulletins)"",
+                        ""how_to_improve"": ""Explain where this specific type of interview is typically found, such as within a structured news broadcast.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Significance of hard news interviews (accuracy/public info)"",
+                        ""how_to_improve"": ""Discuss the purpose of the interview, focusing on how it prioritizes factual information and accountability over entertainment.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Characteristics of hard news (serious/time-sensitive)"",
+                        ""how_to_improve"": ""Describe the nature of the content, specifically that it deals with urgent or serious factual matters.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Definition of a personal interview (feelings, experiences, or opinions)."",
+                        ""how_to_improve"": ""Ensure you address the specific topic of the question; your answer discussed news formats rather than personal interviews.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Tone of a personal interview (relaxed or empathetic)."",
+                        ""how_to_improve"": ""Describe the atmosphere or emotional approach used during this specific type of broadcast segment.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Significance of personal interviews (emotional engagement/human interest)."",
+                        ""how_to_improve"": ""Explain why this format is used and how it affects the audience's connection to the story.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Definition of a vox pop (vox populi) as short opinions from the public."",
+                        ""how_to_improve"": ""Ensure you address the specific topic of the question; your answer discussed news formats rather than vox pops or multiple interviews.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Explanation of a multiple interview combining responses from several people."",
+                        ""how_to_improve"": ""Focus on describing how different voices are structured within a single report to provide variety.""
+                    },
+                    {
+                        ""marks_lost"": 2,
+                        ""description"": ""The significance of these formats in reflecting public opinion or adding balance."",
+                        ""how_to_improve"": ""Explain why a journalist would choose these methods, such as to show a range of perspectives on a policy or event.""
+                    }
+                ],
+                ""key_points_covered"": ""1(a):  | 1(b):  | 1(c):  | 1(d):  | 1(e): "",
+                ""subquestion_evaluations"": {
+                    ""1(a)"": {
+                        ""feedback"": ""The answer provided does not address the topic of adversarial interviews as required by the marking scheme. Instead, it defines various news formats and documentary styles which are irrelevant to the specific criteria. To earn marks, you must focus your response on the characteristics and purposes of confrontational interviewing techniques."",
+                        ""marks_max"": 4,
+                        ""marks_awarded"": 0,
+                        ""missing_points"": [
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Definition of adversarial interview"",
+                                ""how_to_improve"": ""Ensure you address the specific topic requested in the marking criteria, which was adversarial interviewing.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Purpose of holding interviewees to account"",
+                                ""how_to_improve"": ""Explain the objective of the journalistic style, such as challenging public figures on controversial issues.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Significance of the technique"",
+                                ""how_to_improve"": ""Discuss why this method is used, specifically regarding the exposure of inconsistencies in a subject's statements.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Identification of confrontational approach"",
+                                ""how_to_improve"": ""Describe the nature of the interaction between the interviewer and the subject.""
+                            }
+                        ],
+                        ""key_points_covered"": """"
+                    },
+                    ""1(b)"": {
+                        ""feedback"": ""The answer provided is entirely irrelevant to the topic of grabbed interviews. While the descriptions of other news formats are detailed, they do not address the specific requirements of the marking scheme. To earn marks, you must focus your response on the specific journalistic technique requested."",
+                        ""marks_max"": 4,
+                        ""marks_awarded"": 0,
+                        ""missing_points"": [
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Definition of a grabbed interview as unscheduled or spontaneous."",
+                                ""how_to_improve"": ""Ensure the answer directly addresses the specific topic of 'grabbed interviews' rather than general news formats.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Characteristics of a grabbed interview such as brief questions or limited preparation."",
+                                ""how_to_improve"": ""Focus on the technical execution and preparation style of the interview type requested.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""The significance of grabbed interviews, such as capturing immediate reactions."",
+                                ""how_to_improve"": ""Explain the purpose or impact of the specific journalistic technique in question.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""A valid example of a grabbed interview."",
+                                ""how_to_improve"": ""Provide a concrete scenario where a reporter intercepts a subject in a public setting.""
+                            }
+                        ],
+                        ""key_points_covered"": """"
+                    },
+                    ""1(c)"": {
+                        ""feedback"": ""The answer provided does not address the subject of hard news interviews. While the descriptions of news formats are detailed, they do not contain the substance required by the marking scheme for this specific topic. To improve, focus your response on the characteristics and purpose of the interview style requested."",
+                        ""marks_max"": 4,
+                        ""marks_awarded"": 0,
+                        ""missing_points"": [
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Definition of a hard news interview"",
+                                ""how_to_improve"": ""Ensure you address the specific topic of the question; the answer provided definitions for news formats rather than the 'hard news interview' specifically.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Context of use (news bulletins)"",
+                                ""how_to_improve"": ""Explain where this specific type of interview is typically found, such as within a structured news broadcast.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Significance of hard news interviews (accuracy/public info)"",
+                                ""how_to_improve"": ""Discuss the purpose of the interview, focusing on how it prioritizes factual information and accountability over entertainment.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Characteristics of hard news (serious/time-sensitive)"",
+                                ""how_to_improve"": ""Describe the nature of the content, specifically that it deals with urgent or serious factual matters.""
+                            }
+                        ],
+                        ""key_points_covered"": """"
+                    },
+                    ""1(d)"": {
+                        ""feedback"": ""Your answer did not address the topic of personal interviews as required by the marking criteria. Instead, you provided general definitions of news formats and documentary styles, which cannot be credited here. To improve, focus your response strictly on the characteristics and significance of the specific format requested."",
+                        ""marks_max"": 4,
+                        ""marks_awarded"": 0,
+                        ""missing_points"": [
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Definition of a personal interview (feelings, experiences, or opinions)."",
+                                ""how_to_improve"": ""Ensure you address the specific topic of the question; your answer discussed news formats rather than personal interviews.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Tone of a personal interview (relaxed or empathetic)."",
+                                ""how_to_improve"": ""Describe the atmosphere or emotional approach used during this specific type of broadcast segment.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Significance of personal interviews (emotional engagement/human interest)."",
+                                ""how_to_improve"": ""Explain why this format is used and how it affects the audience's connection to the story.""
+                            }
+                        ],
+                        ""key_points_covered"": """"
+                    },
+                    ""1(e)"": {
+                        ""feedback"": ""The answer provided is entirely irrelevant to the marking scheme regarding vox pops and multiple interviews. While you described various television news and film formats, you did not address the specific methods of gathering public opinion or the significance of doing so. To improve, ensure your response directly targets the concepts of audience representation and interview structures."",
+                        ""marks_max"": 4,
+                        ""marks_awarded"": 0,
+                        ""missing_points"": [
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Definition of a vox pop (vox populi) as short opinions from the public."",
+                                ""how_to_improve"": ""Ensure you address the specific topic of the question; your answer discussed news formats rather than vox pops or multiple interviews.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Explanation of a multiple interview combining responses from several people."",
+                                ""how_to_improve"": ""Focus on describing how different voices are structured within a single report to provide variety.""
+                            },
+                            {
+                                ""marks_lost"": 2,
+                                ""description"": ""The significance of these formats in reflecting public opinion or adding balance."",
+                                ""how_to_improve"": ""Explain why a journalist would choose these methods, such as to show a range of perspectives on a policy or event.""
+                            }
+                        ],
+                        ""key_points_covered"": """"
+                    }
+                }
+            },
+            ""3"": {
+                ""rank"": 4,
+                ""feedback"": ""You correctly identified that protest groups use visual actions to gain coverage and that announcements are planned media events. However, the description of 'set-pieces' was factually incorrect as they are staged media opportunities rather than problem-solving mechanisms. To improve, focus on explaining the specific strategic purpose behind different media events, such as creating conflict or providing controlled statistics."",
+                ""marks_max"": 20,
+                ""marks_awarded"": 4,
+                ""extracted_text"": ""3\nProtest / ~~Pressure~~ groups / Action group.\nThese are the type of groups that have come together as one protesting about certain issues such as they are fighting for their rights. They are filmed as they are doing something.\nAnnouncement\nThis is whereby, journalists or reporters are being called and they are given an item or news for them to report. It is a planned news group. They tell where the problem is.\n~~Photo / Video / Staged News group.\nPeople are being arranged and they are prepared for a particular film or being taken photos or photographed.~~\n~~Formal News / Group\nOfficial events such as meetings or press conference and are filmed.~~\n~~Informal News / pressure group.\nWhereby people gather without planning anything.~~\nSet - piece\nThey tend to solve the problem of the issues raised earlier on.\nThis basis is for solving a particular issue that arised earlier on.\n\nUser focus: R"",
+                ""missing_points"": [
+                    {
+                        ""marks_lost"": 4,
+                        ""description"": ""Stunts and symbolic actions"",
+                        ""how_to_improve"": ""Explain how eye-catching or unusual spectacles are used specifically to gain media attention through strong visuals.""
+                    },
+                    {
+                        ""marks_lost"": 4,
+                        ""description"": ""Direct action and protest occupations"",
+                        ""how_to_improve"": ""Describe how non-violent disruption, such as sit-ins, creates a sense of urgency and conflict that increases news value.""
+                    },
+                    {
+                        ""marks_lost"": 4,
+                        ""description"": ""Public meetings and rallies"",
+                        ""how_to_improve"": ""Discuss how organized gatherings with speakers provide ready-made content and demonstrate public engagement to the media.""
+                    },
+                    {
+                        ""marks_lost"": 2,
+                        ""description"": ""Detailed significance of media briefings"",
+                        ""how_to_improve"": ""Elaborate on how press conferences allow groups to control their message and provide specific data or quotes to journalists.""
+                    }
+                ],
+                ""key_points_covered"": ""The student identified protest groups and their use of visual actions for filming, and described press announcements/conferences as planned events where journalists are given information to report.""
+            },
+            ""5"": {
+                ""rank"": 1,
+                ""feedback"": ""Good progress overall, but some parts of this question could be strengthened. To improve: Explain how the overall structure of the show, such as being music-based or news-focused, defines its identity.; Discuss how regular features and editorial values reinforce the programme's identity over time.; Clarify how advertisements contribute to audience retention rather than just being a revenue source."",
+                ""marks_max"": 20,
+                ""marks_awarded"": 13,
+                ""extracted_text"": ""5 a). When establishing an identity of a radio program, the style and the pace of a presenter is required by the editor, so that the audience can understand what is said.\n- Including features that are in the main interest of their target audience.\n- Headlines - opening features as they introduce the upcoming segment or telling the audience what's next.\n- They also use a specific signature tunes and music tunes to establish their identity.\n- Ratings - By marketing their stations for example; \""This is a Nations Number 1 radio station.\""\nb). When keeping an audience, it requires to have presenters who are warmer and cheerful, audience will tune in to listen to them.\n- Encouraging interaction by welcoming feedback and call-ins - phone calls that are made to a media station for one to give his/her opinion about a particular topic.\n- Encouraging promotions by telling an audience about a particular product and listing to them the advantages of using and buying a particular product.\n- Advertise - Through advertisements, a media house can use this method to keep their audience, so long as the quality of the advertised products meets the audiences demand/requirements.\n\nUser focus: R"",
+                ""missing_points"": [
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Programme format and style"",
+                        ""how_to_improve"": ""Explain how the overall structure of the show, such as being music-based or news-focused, defines its identity.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Consistent content and values"",
+                        ""how_to_improve"": ""Discuss how regular features and editorial values reinforce the programme's identity over time.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Explanation of how advertising keeps an audience"",
+                        ""how_to_improve"": ""Clarify how advertisements contribute to audience retention rather than just being a revenue source.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Consistency and reliability"",
+                        ""how_to_improve"": ""Explain how maintaining a regular broadcast schedule and familiar format builds a habit for the listener.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Scheduling and pacing structure"",
+                        ""how_to_improve"": ""Describe how editors mix different types of content like music and interviews to maintain momentum throughout the show.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Explanation of presenter style"",
+                        ""how_to_improve"": ""Provide a more detailed explanation of how specific presenter traits directly contribute to the program's unique identity.""
+                    },
+                    {
+                        ""marks_lost"": 1,
+                        ""description"": ""Explanation of signature tunes"",
+                        ""how_to_improve"": ""Clarify how the use of specific music or jingles creates brand recognition for the listener.""
+                    }
+                ],
+                ""subquestion_evaluations"": {
+                    ""5(a)"": {
+                        ""feedback"": ""You successfully identified several key methods for establishing identity and retaining an audience, particularly regarding presenter personality and sound branding. To improve, ensure you explain the broader structural format of the programme and how consistent editorial values build long-term loyalty. Avoid repeating similar points about marketing and advertising without distinct explanations for each."",
+                        ""marks_max"": 10,
+                        ""marks_awarded"": 7,
+                        ""missing_points"": [
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Programme format and style"",
+                                ""how_to_improve"": ""Explain how the overall structure of the show, such as being music-based or news-focused, defines its identity.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Consistent content and values"",
+                                ""how_to_improve"": ""Discuss how regular features and editorial values reinforce the programme's identity over time.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Explanation of how advertising keeps an audience"",
+                                ""how_to_improve"": ""Clarify how advertisements contribute to audience retention rather than just being a revenue source.""
+                            }
+                        ],
+                        ""key_points_covered"": ""The student identified presenter style, target audience interest, headlines/segments, signature tunes, station branding/ratings, presenter personality, and audience interaction.""
+                    },
+                    ""5(b)"": {
+                        ""feedback"": ""You successfully identified several key methods used by editors, particularly regarding audience interaction and the use of teasers. To improve, ensure you explain the 'how' and 'why' for every point mentioned, as naming a feature without explaining its effect on the audience limits your marks. Focus on how structural elements like scheduling and consistency help retain listeners over time."",
+                        ""marks_max"": 10,
+                        ""marks_awarded"": 6,
+                        ""missing_points"": [
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Consistency and reliability"",
+                                ""how_to_improve"": ""Explain how maintaining a regular broadcast schedule and familiar format builds a habit for the listener.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Scheduling and pacing structure"",
+                                ""how_to_improve"": ""Describe how editors mix different types of content like music and interviews to maintain momentum throughout the show.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Explanation of presenter style"",
+                                ""how_to_improve"": ""Provide a more detailed explanation of how specific presenter traits directly contribute to the program's unique identity.""
+                            },
+                            {
+                                ""marks_lost"": 1,
+                                ""description"": ""Explanation of signature tunes"",
+                                ""how_to_improve"": ""Clarify how the use of specific music or jingles creates brand recognition for the listener.""
+                            }
+                        ],
+                        ""key_points_covered"": ""The student identified presenter style/pace, audience interest, headlines/teasers, signature tunes, presenter personality, and audience interaction via call-ins.""
+                    }
+                }
+            },
+            ""7"": {
+                ""rank"": 2,
+                ""feedback"": ""You have correctly identified several key reasons why rapport is important, particularly regarding trust and audience interaction. To improve, you should provide more depth on how rapport affects the clarity of the message and the branding of the media house. Avoid repeating the same concept across different points to maximize your marks."",
+                ""marks_max"": 20,
+                ""marks_awarded"": 10,
+                ""extracted_text"": ""7\n- It helps in building trust within the audience - A good rapport helps in maintaining trust through a good communication.\n- It helps in maintaining a positive or a good image - such that a good rapport maintains a positive image between a particular media house and the audience.\n- A good rapport encourages interaction between a media house and the audience through feedback and call-ins.\n- A good rapport maintains credibility such that it maintains the professionalism as required of any particular media house.\n- Communication - Through verified information and a good presentation helps in building a good rapport with the audience.\n- Loyalty - The audience loyalty engagement helps in building a good rapport as the audience will tune in to watch news or any programme provided by the media house they tuned in.\n- Accuracy - A media house should only broadcast verified facts and verified information so as to avoid legal issues and also build a good rapport and helps in maintaining trust.\n\nUser focus: R"",
+                ""missing_points"": [
+                    {
+                        ""marks_lost"": 3,
+                        ""description"": ""Clarity and understanding of news stories"",
+                        ""how_to_improve"": ""Explain how rapport allows a journalist to use a conversational tone to make complex information more accessible to the audience.""
+                    },
+                    {
+                        ""marks_lost"": 3,
+                        ""description"": ""Enhancing programme identity and brand"",
+                        ""how_to_improve"": ""Discuss how a presenter's rapport helps define the personality of a show and differentiates it from competitors.""
+                    },
+                    {
+                        ""marks_lost"": 2,
+                        ""description"": ""Detailed explanation of trust and credibility"",
+                        ""how_to_improve"": ""Expand on why trust is essential for public confidence and how it specifically impacts the reception of breaking news.""
+                    },
+                    {
+                        ""marks_lost"": 2,
+                        ""description"": ""Detailed explanation of audience connection"",
+                        ""how_to_improve"": ""Describe how a personal connection makes audiences feel valued, leading to a more stable and loyal viewer base.""
+                    }
+                ],
+                ""key_points_covered"": ""The student identified that rapport builds trust, maintains a positive image, encourages interaction via feedback/call-ins, ensures professionalism/credibility, and fosters audience loyalty through engagement.""
+            },
+            ""8"": {
+                ""rank"": 3,
+                ""feedback"": ""You demonstrated a good understanding of how to balance a single news bulletin using hard and soft news. However, the question asks about television programming more broa",success,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+13,/save-indexing-info (POST),"{
+    ""orgcode"": ""ICMELIVE"",
+    ""custcode"": ""ICME"",
+    ""usercode"": ""lahari"",
+    ""type"": 1,
+    ""registrationnumber"": ""2334540"",
+    ""subjectcode"": ""BJ05"",
+    ""workspaceid"": 272,
+    ""metstandardcount"": 5,
+    ""is_review"": 0,
+    ""indexdata"": {
+        ""status"": ""completed"",
+        ""orgcode"": ""ICMELIVE"",
+        ""custcode"": ""ICME"",
+        ""is_update"": 0,
+        ""workspace_id"": 272,
+        ""blank_pages"": [
+          
+        ],
+        ""segment_data"": [
+            {
+                ""qid"": 1,
+                ""image_path"": [
+                    ""ICME/ICMELIVE/Broadcast Journalism/BJ_New_2_29062026/Broadcast Journalism/2334540/2.png""
+                ],
+                ""segment_id"": [
+                    0
+                ]
+            }
+        ],
+        ""subjectcode"": ""BJ05"",
+        ""total_pages"": 12,
+        ""pages_to_review"": [],
+        ""pages_to_review_paths"": [],
+        ""total_questions"": 8,
+        ""auto_mapped_pages"": 5,
+        ""questions_answered"": 5,
+        ""unanswered_questions"": [
+        
+        ]
+    }
+}",success,
+,,,,
+,,,,
+,,,,
+,,,,
+,,,,
+14,/update-status (POST),registrationnumber,success,
+,,status,,
+,,type,,
+,,WorkspaceId,,
+,,,,
+,,,,
+16,/delete-candidate (POST),OrgCode,success,
+,,CustCode,,
+,,SubjectCode,,
+,,WorkspaceId,,
+,,CandidateId,,
+17,/delete-workspace (POST),OrgCode,success,
+,,CustCode,,
+,,SubjectCode,,
+,,WorkspaceId,,
+,,,,
+,,,,
+,,username,,
+19,/api/auth/login (POST),username,customerCode,
+,,password,orgCode,
+,,,userCode,
+,,,userRole,
+,,,username,
+,,,status,
+,,,,
+20,/run-evaluation (POST),"{
+    ""orgcode"": ""ICMELIVE"",
+    ""custcode"": ""ICME"",
+    ""usercode"": ""lahari"",
+    ""isall"": 1,
+    ""registrationnumber"": ""2334540"",
+    ""subjectcode"": ""BJ05"",
+    ""workspaceid"": 275,
+    ""questions"": [],
+    ""userprompt"": ""zsdfz""
+}","{
+    ""status"": ""SUCCESS"",
+    ""workspaceid"": 275,
+    ""registrationnumber"": ""2334540"",
+    ""processdata"": {
+        ""registration_number"": ""2334540"",
+        ""eval_data"": {
+           
+        ""final_score"": {
+            ""total_questions_answered"": 5,
+            ""questions_to_answer"": 5,
+            ""obtained_score"": 42,
+            ""max_score"": 100,
+            ""percentage"": 42.0
+        },
+        ""token_usage"": {
+            ""prompt_tokens"": 16872,
+            ""completion_tokens"": 2633,
+            ""total_tokens"": 19505
+        }
+    }
+}",
+,,,,
+,,,,
+21,/api/organization-details (GET),CustCode,OrgCode,
+,,,OrgName,
+22,/delete-subject (POST),OrgCode,success,
+,,CustCode,message,
+,,SubjectCode,,
+23,/update-subject-data (POST),SubjectData,success,
+,,,message,
+25,/upload-marking-scheme (POST),file (FormData),success,
+,,OrgCode,message,
+,,CustCode,,
+,,SubjectCode,,
+26,/import-subject-data (POST),file (FormData),success,
+,,OrgCode,message,
+,,CustCode,,

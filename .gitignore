@@ -1,0 +1,51 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+*.local
+
+# Environment files (environment-specific, never commit real values).
+# The .example files are templates (no real secrets) and are tracked on purpose.
+.env
+.env.*
+!.env.example
+!.env.production.example
+!.env.demo.example
+!.env.testing.example
+# Same idea, but named without the second dot - doesn't match .env.* above.
+.envIsh
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# Vite temp artifacts
+*.timestamp-*.mjs
+
+# Local scratch / backup folders and archives — not part of the app
+.kiro/
+scratch/
+/*.zip
+
+# Local one-off tracking spreadsheets at the project root — not part of the app.
+# (public/Subject_Import.xlsx is a real app asset and is deliberately not matched here.)
+/*.xlsx
+/*.xls
+
+# One-off local patch scripts used during development, not part of the app
+/check.cjs
+/move_standards.cjs
+/revert_segmentation.cjs
+/wrap_dropdowns.cjs
